@@ -1,5 +1,7 @@
 // importando de styles.js
 import { Container } from "./styles"
+import { Button } from "../../components/Button"
+
 
 export function Details() {
   return (
@@ -7,6 +9,7 @@ export function Details() {
     <Container>
       <h1>Olá a todos!</h1>
       <p>Hoje, vamos falar sobre..</p>
+      <Button/>
     </Container>
   )
 }
