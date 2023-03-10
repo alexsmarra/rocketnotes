@@ -38,3 +38,14 @@ export const Profile = styled.div`
       }
    }
 `
+
+export const Logout = styled.button`
+   border: none;
+   background: none;
+
+   /* the imgs imported from react-icons are in svg format automatically */
+   > svg {
+      color: ${({ theme }) => theme.COLORS.GRAY_100};
+      font-size: 36px;
+   }
+`
