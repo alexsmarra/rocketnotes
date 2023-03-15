@@ -8,7 +8,7 @@ export const Container = styled.div`
    grid-template-rows: 105px 128px auto 64px;
    grid-template-areas: 
    "brand header"
-   "menu  search"
+   "menu search"
    "menu content"
    "newnote content";
    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800}; 
@@ -16,25 +16,36 @@ export const Container = styled.div`
 
 export const Brand = styled.div`
    grid-area: brand;
-   background: brown;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   border-bottom-width: 1px;
+   border-bottom-style: solid;
+   border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+
+   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+
+   > h1 {
+      font-size: 24px;
+      color: ${({ theme }) => theme.COLORS.ORANGE};
+   }
+
  `
 
 export const Menu = styled.ul`
    grid-area: menu;
-   background: gray;
 `
 
 export const Search = styled.div`
    grid-area: search;
-   background: violet;
 `
 
 export const Content = styled.div`
    grid-area: content;
-   background: darkgrey;
 `
 
 export const NewNote= styled.button`
    grid-area: newnote;
-   background: darkgoldenrod;
 `
