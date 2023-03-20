@@ -44,5 +44,5 @@ export const Form = styled.form`
    // para pegar uma imagem importada de nossos arquivos é dessa forma com o cifrão quando estamos usando o styled component (pelo css) - to get a import image of our files is like this way
    background: url(${backgroundImg}) no-repeat center center;
    background-size: cover;
-   opacity: .6;
+   opacity: .6; 
  `
