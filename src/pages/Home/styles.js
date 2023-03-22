@@ -1,4 +1,7 @@
 import styled from "styled-components"
+// podemos importar o Link na parte do css tbm (explicação no SignIn/index.jsx)
+import { Link } from 'react-router-dom'
+
 
 export const Container = styled.div`
    width: 100%;
@@ -57,11 +60,12 @@ export const Content = styled.div`
    overflow-y: auto;
 `
 
-export const NewNote= styled.button`
+// é assim que se usa o Link importado lá de cima (era um button, mas usando Link temos vantagens). It was a button, but using Link we have more advantages.
+export const NewNote= styled(Link)`
    grid-area: newnote;
 
    background-color: ${({ theme }) => theme.COLORS.ORANGE};
-   border: none;
+   color: ${({ theme }) => theme.BACKGROUND_900};
 
    display: flex;
    align-items: center;

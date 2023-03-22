@@ -2,6 +2,8 @@ import { Container, Form, Background } from './styles'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { FiMail, FiLock } from 'react-icons/fi'
+// para colocarmos no lugar das tags <a /> por exemplo, para links. Ele guarda o histórico de navegação, tem alguns benefícios que facilitam o trabalho
+import { Link } from 'react-router-dom'
 
 export function SignIn() {
    return (
@@ -24,9 +26,9 @@ export function SignIn() {
 
             <Button title="Entrar" />
             
-            <a href="#">
+            <Link to="/register">
                Criar conta
-            </a>
+            </Link>
          </Form>
 
          <Background />

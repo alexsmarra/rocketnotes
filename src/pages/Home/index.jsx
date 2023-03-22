@@ -39,7 +39,8 @@ export function Home() {
             </Section>
          </Content>
 
-         <NewNote>
+         {/* in css we made newNote transform into a Link */}
+         <NewNote to="new">
             <FiPlus/>
             Criar nota
          </NewNote>
