@@ -6,7 +6,8 @@ import { Container, Form, Background } from './styles'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { FiMail, FiLock, FiUser } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+// useNavigate is to send user to another page after registered
+import { Link, useNavigate } from 'react-router-dom'
 
 export function SignUp() {
    // initial value is empty ""
@@ -14,10 +15,28 @@ export function SignUp() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
 
+   const navigate = useNavigate()
+
    function handleSignup() {
       if(!name || !email || !password) {
          return alert("Fill in all fields!")
       }
+
+      api.post("/users", { name, email, password })
+      // instead of async await
+      .then(() => {
+         alert("Successfully registered user")
+         // to send user to SingIn page after success registered.
+         navigate("/")
+      })
+      .catch(error => {
+         if(error.response) {
+            alert(error.response.data.message)
+         } else {
+            alert("Could not register!")
+         }
+      })
+
    }
 
    return (
