@@ -1,3 +1,4 @@
+// useState para armazenar os dados que o usuário digitar nos campos
 import { useState } from 'react'
 import { useAuth } from '../../hooks/auth'
 
@@ -9,10 +10,11 @@ import { FiMail, FiLock } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 export function SignIn() {
-   // 'email' é a variável, 'setEmail' é a função para alterarmos o valor de 'email', 'useState' é a função que permite criar o nosso estado, inclusive podemos colocar um valor inicial nela, como "" por exemplo, que é vazio, ou um objeto {}, etc
+   // 'email' é a variável, 'setEmail' é a função para alterarmos o valor de 'email', 'useState' é a função que permite criar o nosso estado, inclusive podemos colocar um valor inicial nela, como "" por exemplo, que é uma string vazia, ou um objeto {}, etc
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
 
+   // destructuring useAuth's signIn function (função signIn do arquivo auth.jsx)
    const { signIn } = useAuth()
 
    function handleSignIn() {
