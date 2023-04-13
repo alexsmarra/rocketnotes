@@ -9,6 +9,7 @@ import { FiMail, FiLock } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
 export function SignIn() {
+   // 'email' é a variável, 'setEmail' é a função para alterarmos o valor de 'email', 'useState' é a função que permite criar o nosso estado, inclusive podemos colocar um valor inicial nela, como "" por exemplo, que é vazio, ou um objeto {}, etc
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
 

@@ -5,6 +5,7 @@ import { api } from '../services/api'
 export const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
+   // 'data' é a variável, 'setData' é a função para alterarmos o valor de 'data', 'useState' é a função que permite criar o nosso estado, inclusive podemos colocar um valor inicial nela, como "" (vazio) por exemplo, ou um objeto {}, etc.
    const [data, setData] = useState({})
 
    // passou em chaves os params para buscá-los independente da posição
