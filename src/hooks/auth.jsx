@@ -38,6 +38,14 @@ function AuthProvider({ children }) {
       }
    } 
 
+   // para "deslogar"
+   function signOut() {
+      localStorage.removeItem("@rocketnotes:token")
+      localStorage.removeItem("@rocketnotes:user")
+
+      setData({})
+   }
+
    // Always leave the closest to the return. When we leave the [] empty, the app will be loader only once after rendering our component (o app será carregado apenas uma vez após nosso componente ser renderizado, dessa forma, quando o usuário fizer o login e for direcionando para a page Home, se atualizarmos a tela, manterá na tela Home. Sem o useEffect, caso atualizássemos a tela após o usuário fazer o login, voltaria para a tela de login). Se colocarmos uma variável dentro dos [], isso quer dizer que, toda vez que essa variável mudar, o useEffect será executado.
    useEffect(() => {
       const token = localStorage.getItem("@rocketnotes:token")
@@ -55,7 +63,7 @@ function AuthProvider({ children }) {
 
    return (
       // sharing function signIn and data.user on user variable in our context
-   <AuthContext.Provider value={{ signIn, user: data.user }}>
+   <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
       {children}
    </AuthContext.Provider>
    )
