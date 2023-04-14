@@ -46,10 +46,21 @@ function AuthProvider({ children }) {
       setData({})
    }
 
-   async function updateProfile({ user }) {
+   async function updateProfile({ user, avatarFile }) {
       try {
+         if(avatarFile) {
+            // new FormData() pq precisamos no formato de aquivo
+            const fileUploadForm = new FormData()
+            // igual fizemos no Insomnia, na pasta Users / Patch / Avatar, mas aqui está em forma de código
+            fileUploadForm.append("avatar", avatarFile)
+
+            const response = await api.patch("/users/avatar", fileUploadForm)
+            user.avatar = response.data.avatar
+         }
+
+
          await api.put("/users", user)
-        localStorage.setItem("@rocketnotes:user", JSON.stringify(user))
+         localStorage.setItem("@rocketnotes:user", JSON.stringify(user))
         
         setData({ user, token: data.token})
         alert("Updated profile")
