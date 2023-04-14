@@ -23,7 +23,7 @@ function AuthProvider({ children }) {
          localStorage.setItem("@rocketnotes:token", token)
 
          // inserindo um token do tipo Bearer em todas as requisições que o usuário fizer
-         api.defaults.headers.authorization = `Bearer ${token}`
+         api.defaults.headers.common['Authorization'] = `Bearer ${token}`
          // armazenando informações
          setData({ user, token })
          console.log(user, token)
@@ -38,7 +38,7 @@ function AuthProvider({ children }) {
       }
    } 
 
-   // para "deslogar"
+   // para logout
    function signOut() {
       localStorage.removeItem("@rocketnotes:token")
       localStorage.removeItem("@rocketnotes:user")
@@ -52,7 +52,7 @@ function AuthProvider({ children }) {
       const user = localStorage.getItem("@rocketnotes:user")
 
       if(token && user) {
-         api.defaults.headers.authorization = `Bearer ${token}`
+         api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
          setData({
             token,
