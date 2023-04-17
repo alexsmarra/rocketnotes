@@ -18,6 +18,7 @@ export function New() {
    const [newTag, setNewTag] = useState("")
 
    function handleAddLink() {
+      // "prevState" pega o que já tem em "links"
       setLinks(prevState => [...prevState, newLink])
       setNewLink("")
    }
@@ -28,6 +29,11 @@ export function New() {
 
    function handleAddTag() {
       setTags(prevState => [...prevState, newTag])
+      setNewTag("")
+   }
+
+   function handleRemoveTag(deleted) {
+      setTags(prevState => prevState.filter(tag => tag !== deleted))
    }
 
    return (
@@ -72,7 +78,7 @@ export function New() {
                         <NoteItem 
                            key={String(index)}
                            value={tag}
-                           onClick={() => {}}
+                           onClick={() => {handleRemoveTag(tag)}}
                         />
                      ))
                   } 
