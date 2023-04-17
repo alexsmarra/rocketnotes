@@ -19,6 +19,10 @@ export function New() {
       setNewLink("")
    }
 
+   function handleRemoveLink(deleted) {
+      setLinks(prevState => prevState.filter(link => link !== deleted))
+   }
+
    return (
       <Container>
         <Header /> 
@@ -40,10 +44,11 @@ export function New() {
                      <NoteItem 
                         key={String(index)}
                         value={link}
-                        onClick={() => {}}
+                        // quando a função tem params, temos que colocar dessa forma com uma arrow function, caso contrário ela tentará executar sozinha (palavras do professor)
+                        onClick={() => {handleRemoveLink(link)}}
                      /> 
                   ))
-               }
+               }                                             
                <NoteItem 
                   isNew 
                   placeholder="Novo Link"
