@@ -26,6 +26,14 @@ export function New() {
    const [newTag, setNewTag] = useState("")
 
    async function handleNewNote() {
+      if(!title) {
+         return alert("Enter the title of the note please.")
+      }
+      
+      if(newLink || newTag) {
+         return alert("There are items that were not added, are you sure you want to save?")
+      }
+
       await api.post("/notes", {
          title,
          description,
